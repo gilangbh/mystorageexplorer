@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "893643338579",
+    "firebase_url": "https://simplestorageexplorer.firebaseio.com",
+    "project_id": "simplestorageexplorer",
+    "storage_bucket": "simplestorageexplorer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893643338579:android:6bda40b074f9415a",
+        "android_client_info": {
+          "package_name": "id.bhagaskara.simplestorageexplorer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893643338579-k6oc4eelrmhj0ep5d8nkdt5nvj8esj0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.bhagaskara.simplestorageexplorer",
+            "certificate_hash": "b55b218dd53ade5704d1d8a60e59c996104968c4"
+          }
+        },
+        {
+          "client_id": "893643338579-emd4o0a5pssqc5oeufdd7o6db77o7dcm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ_6WqbxUH4WTyO4EoBOomEvymtU0QtwQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893643338579-emd4o0a5pssqc5oeufdd7o6db77o7dcm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
