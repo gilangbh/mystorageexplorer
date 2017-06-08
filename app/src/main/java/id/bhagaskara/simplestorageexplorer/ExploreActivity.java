@@ -36,5 +36,4 @@ public class ExploreActivity extends AppCompatActivity {
         adView.loadAd(adRequest);
 
     }
-
 }

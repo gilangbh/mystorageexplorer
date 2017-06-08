@@ -1,5 +1,6 @@
 package id.bhagaskara.simplestorageexplorer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,8 +10,13 @@ import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.gson.Gson;
+
+import id.bhagaskara.simplestorageexplorer.model.StorageAccount;
 
 public class ContainerActivity extends AppCompatActivity {
+
+    private Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,10 @@ public class ContainerActivity extends AppCompatActivity {
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
 
-    }
+        Intent intent = getIntent();
+        String storageAccountJson = intent.getStringExtra("storageAccount");
 
+        StorageAccount storageAccount = gson.fromJson(storageAccountJson,StorageAccount.class);
+
+    }
 }

@@ -8,13 +8,13 @@ import id.bhagaskara.simplestorageexplorer.enums.Endpoint;
 
 public class StorageAccount {
     private String name,key,endpointText;
-    private String fullendpoint;
     private boolean isHttp;
     private Endpoint endpoint;
 
     public StorageAccount(){
 
     }
+
     public StorageAccount(String name, String key, Endpoint endpoint, boolean isHttp){
         this.name = name;
         this.key = key;
@@ -66,4 +66,19 @@ public class StorageAccount {
         return this.name + "." + this.endpointText;
     }
 
+    public String getHttporHttps(){
+        if(isHttp)
+            return "http";
+        else
+            return "https";
+    }
+
+    public String getConnectionString() {
+        String DefaultEndPoints = "DefaultEndpointsProtocol=" + getHttporHttps();
+        String AccountName = "AccountName=" + name;
+        String AccountKey = "AccountKey=" + key;
+
+        String conn = DefaultEndPoints + AccountName + AccountKey;
+        return conn;
+    }
 }
