@@ -10,8 +10,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="id.bhagaskara.simplestorageexplorer.AddStorageAccount_Activity"
-    tools:showIn="@layout/activity_add_storage_account_">
+    tools:context="id.bhagaskara.simplestorageexplorer.AddStorageAccountActivity"
+    tools:showIn="@layout/activity_add_storage_account">
     <RelativeLayout
         android:id="@+id/activity_add_storage_account"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="id.bhagaskara.simplestorageexplorer.AddStorageAccount_Activity">
+        tools:context="id.bhagaskara.simplestorageexplorer.AddStorageAccountActivity">
 
         <!-- Login progress -->
         <ProgressBar

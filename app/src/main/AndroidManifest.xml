@@ -53,7 +53,7 @@
                 android:value="id.bhagaskara.simplestorageexplorer.MainActivity" />
         </activity>
         <activity
-            android:name=".AddStorageAccount_Activity"
+            android:name=".AddStorageAccountActivity"
             android:label="@string/title_activity_add_storage_account_"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

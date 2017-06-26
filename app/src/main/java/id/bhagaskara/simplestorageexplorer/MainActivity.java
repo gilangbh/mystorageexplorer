@@ -2,9 +2,9 @@ package id.bhagaskara.simplestorageexplorer;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.bhagaskara.simplestorageexplorer.adapter.StorageAccountAdapter;
-import id.bhagaskara.simplestorageexplorer.enums.Endpoint;
 import id.bhagaskara.simplestorageexplorer.model.StorageAccount;
 import id.bhagaskara.simplestorageexplorer.utilities.RecyclerItemClickListener;
 
@@ -35,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private StorageAccountAdapter storageAccountAdapter;
     private Gson gson = new Gson();
-
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    SharedPreferences.Editor editor;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                Intent intent = new Intent(MainActivity.this,AddStorageAccount_Activity.class);
+                Intent intent = new Intent(MainActivity.this,AddStorageAccountActivity.class);
                 //startActivity(intent);
                 startActivityForResult(intent,StorageExplorerConstants.REQUEST_CODE_NEW_ACCOUNT);
             }
@@ -66,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         // Toasts the test ad message on the screen. Remove this after defining your own ad unit ID.
         Toast.makeText(this, "Showing Ads!", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = prefs.edit();
+
+        if (prefs.getString("currentActiveStorage",null) != null) {
+            editor.remove("currentActiveStorage");
+            editor.apply();
+        }
+
         recyclerView = (RecyclerView) findViewById(R.id.mRVStorageAccountList);
 
         storageAccountAdapter = new StorageAccountAdapter(storageAccountList);
@@ -78,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 StorageAccount storageAccount = storageAccountList.get(position);
                 String storageAccountJson = gson.toJson(storageAccount);
+
+                editor.putString("currentActiveStorage", storageAccountJson);
+                editor.apply();
 
                 Intent intent = new Intent(MainActivity.this,ContainerActivity.class);
                 intent.putExtra("storageAccount",storageAccountJson);

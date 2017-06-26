@@ -78,7 +78,7 @@ public class StorageAccount {
         String AccountName = "AccountName=" + name;
         String AccountKey = "AccountKey=" + key;
 
-        String conn = DefaultEndPoints + AccountName + AccountKey;
+        String conn = DefaultEndPoints + ";" + AccountName + ";" + AccountKey;
         return conn;
     }
 }

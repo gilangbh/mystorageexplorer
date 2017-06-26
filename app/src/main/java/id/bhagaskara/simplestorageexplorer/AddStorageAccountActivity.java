@@ -2,8 +2,6 @@ package id.bhagaskara.simplestorageexplorer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,20 +12,17 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import id.bhagaskara.simplestorageexplorer.enums.Endpoint;
 import id.bhagaskara.simplestorageexplorer.model.StorageAccount;
 
-public class AddStorageAccount_Activity extends AppCompatActivity {
+public class AddStorageAccountActivity extends AppCompatActivity {
     private RadioGroup mRGendpoint;
     private CheckBox mCBhttps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_storage_account_);
+        setContentView(R.layout.activity_add_storage_account);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -49,7 +44,7 @@ public class AddStorageAccount_Activity extends AppCompatActivity {
         }
 
         mCBhttps = (CheckBox)findViewById(R.id.mCBhttps);
-        boolean isHttp = mCBhttps.isChecked();
+        boolean isHttp = !mCBhttps.isChecked();
         StorageAccount storageAccount = new StorageAccount(name,key,endpoint,isHttp);
         Gson gson = new Gson();
         String storageAccountJson = gson.toJson(storageAccount);
